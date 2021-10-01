@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="DropDownMenu.UserControlProviders"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DropDownMenu.ViewModel"
+             xmlns:viewModel="clr-namespace:DropDownMenu.ViewModel" xmlns:dropdownmenu="clr-namespace:DropDownMenu"
+             d:DataContext="{d:DesignInstance Type=dropdownmenu:FirstView}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <ItemsControl
+            x:Name="List"
+            DockPanel.Dock="Bottom"
+            ItemsSource="{Binding ImageDetailList}" Margin="0,0,0,251">
+            <!--first view +  ImageListViewModel dokpy-->
+
+            <!--:DataContext="{d:DesignInstance Type=dropdownmenu:ImageListViewModel}"-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                        Width="150"
+                        Height="150"
+                        Margin="10,5,0,5"
+                        Command="{Binding ElementName=List, Path=DataContext.ShowCommand}"
+                        CommandParameter="{Binding}"
+                        Content="{Binding Name}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Grid>
+            
+            <ItemsControl x:Name="List2"
+            DockPanel.Dock="Bottom"
+            ItemsSource="{Binding DirectoryList}" Margin="0,233,0,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                        
+                        <Button
+                        Width="150"
+                        Height="150"
+                        Margin="10,5,0,5"
+                        Command="{Binding ElementName=List2, Path=DataContext.ImageListCommand}"
+                        CommandParameter="{Binding}"
+                        Content="{Binding}" />
+                        </DataTemplate>
+                    
+                </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+    </Grid>
+    
+
+
+
+</UserControl>
