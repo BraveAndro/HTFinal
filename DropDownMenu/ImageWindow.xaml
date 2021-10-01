@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:DropDownMenu.ViewModel"
         Title="ImageWindow"
         Width="400" Height="400"
-        d:DataContext="{d:DesignInstance Type=local:ImageListViewModel}"
+        d:DataContext="{d:DesignInstance Type=local:FirstView}"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <Grid>
